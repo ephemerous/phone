@@ -153,8 +153,8 @@ You're all set!
 
 ### Activate your phone on another device.
 
-1. From the new device visit your phone url.
-1. Enter your activation key.
+1. From the new device visit your `phone url`.
+1. Enter your `activation key`.
 
 
 ![](./media/ephemerous-activate-step.jpg)
