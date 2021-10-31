@@ -3,7 +3,7 @@
 ![Phone Software](media/phone-demo.jpg)
 ![Phone Software](media/phone-in-demo.jpg)
 
-Make and receive calls using Cloudflare Workers and Twilio.
+Make and receive calls using [Cloudflare Workers](https://developers.cloudflare.com/workers/) and [Twilio](https://twilio.com/).
 
 
 ## Requirements
