@@ -1,7 +1,7 @@
 # Ephemerous Phone Self Install
 
-![Phone Software](./media/phone-demo.jpg)
-![Phone Software](./media/phone-in-demo.jpg)
+![Phone Software](media/phone-demo.jpg)
+![Phone Software](media/phone-in-demo.jpg)
 
 Make and receive calls using Cloudflare Workers and Twilio.
 
@@ -33,11 +33,11 @@ Create a [Cloudflare](https://dash.cloudflare.com/sign-up) account (free tier wo
 
 From the Cloudflare dashboard
 
-![](./media/cloudflare-workers-step.jpg)
+![](media/cloudflare-workers-step.jpg)
 
 Select a subdomain (you can change this later)
 
-![](./media/cloudflare-account-id-step.jpg)
+![](media/cloudflare-account-id-step.jpg)
 
 Note your Account ID (we'll need this in the install step)
 
