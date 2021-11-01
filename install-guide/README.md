@@ -1,29 +1,34 @@
 # Ephemerous Phone Self Install
 
-![Phone Software](media/phone-demo.jpg)
-![Phone Software](media/phone-in-demo.jpg)
+![Phone Software](./media/phone-demo.jpg)
+![Phone Software](./media/phone-in-demo.jpg)
 
 Make and receive calls using [Cloudflare Workers](https://developers.cloudflare.com/workers/) and [Twilio](https://twilio.com/).
 
 
-## Requirements
-* Cloudflare account
-* Twilio account
 
-(Cloudflare's free tier or better - Twilio offers a free trial.)
+## Resource Requirements
+* A Cloudflare account with workers enabled.
+* A Twilio account with a phone number.
 
-## Steps
-1. Setup Cloudflare
-	1. Account
-	1. Activate workers
-	1. Worker key
-1. Setup Twilio
-	1. Account
-	1. Phone number
-	1. API key
-1. Install and Configure
-	1. Install phone software
-	1. Connect Twilio
+(Cloudflare is free and Twilio offers a free trial account with enough credit to "buy" a test number.)
+
+This tutorial isn't pixel perfect, your experience may vary slightly but hopefully you find the following provides guidance in reaching the goal of installing your own web phone.
+
+These are your ultimate goals...
+
+## Goals
+* Cloudflare account with workers enabled.
+* Twilio account with a phone number with empty web hooks (ie empty A CALL COMES IN and A MESSAGE COMES IN url fields.)
+* Collect the following credentials...
+1. Cloudflare Account Id
+1. Cloudflare Edit Worker Token
+1. Twilio Account SID
+1. Twilio App SID
+1. Twilio App Secret
+
+
+So let's get started!..
 
 
 ### Cloudflare
@@ -31,13 +36,13 @@ Create a [Cloudflare](https://dash.cloudflare.com/sign-up) account (free tier wo
 
 #### Activate workers
 
-From the Cloudflare dashboard
+Click the Cloudflare logo in the upper left to get to the Cloudflare dashboard
 
-![](media/cloudflare-workers-step.jpg)
+![](./media/cloudflare-workers-step.jpg)
 
-Select a subdomain (you can change this later)
+Make up a subdomain (you can change this later)
 
-![](media/cloudflare-account-id-step.jpg)
+![](./media/cloudflare-account-id-step.jpg)
 
 Note your Account ID (we'll need this in the install step)
 
@@ -48,30 +53,31 @@ Note your Account ID (we'll need this in the install step)
 ![](./media/cloudflare-api-profile-step.jpg)
 ![](./media/cloudflare-api-token-step.jpg)
 
-**Create Token**
+Click **Create Token**
 
 ![](./media/cloudflare-api-template-step.jpg)
 
-**Permissions**
-Use provided defaults.
+**Permissions Section**
+No change to these fields, use the provided values.
 
-**Account Resources**
+**Account Resources:**
 All Accounts
 
-**Zone Resources**
+**Zone Resources:**
 All Zones
 
-**Client IP Address Filtering**
+**Client IP Address Filtering:**
 Leave as is
 
-**TTL**
-Click `Start Date`, select today.
+**TTL:**
+Click `Start Date`, select today's date.
 
-Click today again to set `End Date`.
+Click tomorrow's date to set `End Date`.
 
-Click away from calendar
+Hide calendar (click somewhere on the page) 
 
 **Continue to Summary**
+
 Review settings
 
 **Create Token**
@@ -97,9 +103,27 @@ We'll need this in the configuration step.
 ![](./media/twilio-phone-number-product-step.jpg)
 
 **Buy a number**
-Search for and buy a number.
+Search for and "buy" a number. (This uses your free trial credit.)
 
+**Configure Number**
 
+Clear the web hook urls...
+
+**Voice & Fax**
+
+**A CALL COMES IN**
+
+Clear the 'https://....' field.
+
+**Messaging**
+
+**A MESSAGE COMES IN**
+
+Clear the 'https://....' field.
+
+**Save** changes
+
+**NOTE: the clear web hook steps are important otherwise the phone will not be properly configured during the automatic install step.**
 
 **Create API key**
 
@@ -121,14 +145,14 @@ We'll need these for the configure step.
 Next, install the phone software to your Cloudflare worker...
 
 ### Install
-Browse to the [Ephemerous installer](https://get.ephemerous.com/)
+Browse to the [Get Ephemerous](https://get.ephemerous.com/) installer.
 
 ![](./media/ephemerous-install-step.jpg)
 
 Select the **Cloudflare** hosting option.
 
 
-Provide your Cloudflare worker credentials.
+Provide your **Cloudflare** account id and worker token.
 * Account ID
 * Worker Token
 
@@ -140,7 +164,7 @@ Wait as Ephemerous is automatically installed to your Cloudflare account (this c
 ### Configure
 You'll be forwarded to your new phone url, make note of the `url` and `activation code`.
 
-Provide your Twilio key information.
+Provide your **Twilio** account and key information.
 * Account SID
 * API SID
 * API Secret
@@ -155,6 +179,8 @@ You're all set!
 
 1. From the new device visit your `phone url`.
 1. Enter your `activation key`.
-
+1. Click **Activate**
 
 ![](./media/ephemerous-activate-step.jpg)
+
+
